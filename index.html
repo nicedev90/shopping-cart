@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script src="js/app.js"></script>
+	<title>Shopping Cart</title>
+</head>
+<body class="flex flex-col min-h-screen">
+
+	<section id="navbar" class="bg-primary">
+		<!-- navbar	 -->
+		<nav class="container mx-auto px-2 md:max-w-6xl">
+			<!-- flex container -->
+			<div class="flex items-center justify-between md:space-x-4">
+				<!-- logo -->
+				<div class="p-1 md:p-0">
+					<img class="w-1/2 md:w-1/4" src="img/logo-bco.png" alt="">
+				</div>
+				<!-- menu items -->
+				<div class="hidden md:flex">
+					<a href="#" class="p-4 bg-orange hover:bg-teal">Dashboard</a>
+					<a href="#" class="p-4 hover:bg-teal">Clientes</a>
+					<a href="#" class="p-4 hover:bg-teal">Requerimientos</a>
+				</div>
+
+				<div class="flex items-center px-3 py-1 w-full mr-12 space-x-2 md:w-auto md:border-l-2">
+					<img src="amlo.jpg" class="w-12 rounded-full" alt="">
+					<a href="#" id="btn-profile">Celeste</a>
+					<button id="btn-cart">
+						<i class="fa-solid fa-shopping-cart rounded-full bg-warning p-3 hover:bg-orange"></i>
+					</button>
+
+						<!-- CARRITO DE COMPRAS -->
+						<section id="shop-cart" class="hidden absolute right-4 left-0 top-10 md:inset-x-44">
+
+							<!-- container -->
+							<div class="container drop-shadow-lg">
+											
+								<div class="flex flex-col mt-5 bg-light">
+									<!-- Titulo  -->
+									<div class="flex justify-center py-2 bg-warning">
+										<h3 class="text-xl"><i class="fa-solid fa-cart-plus w-8"></i>Mis productos</h3>
+									</div>
+
+									<!-- FILA ENCABEZADO VISIBLE EN DESKTOP -->
+									<div class="hidden flex flex-col p-2 border-b-2 md:flex-row md:border-b-2 md:block">
+										<div class="flex justify-between md:w-full md:px-4">
+											<div class="w-fit">CODIGO</div>
+											<div class="w-72">DESCRIPCION</div>
+											<div class="w-fit">CANTIDAD</div>
+											<div class="w-fit">PRECIO UNIT</div>
+											<div class="w-fit">PRECIO TOTAL</div>
+											<div class="w-fit">EDITAR</div>
+										</div>
+									</div>
+
+									<!-- FILA PRODUCTOS -->
+									<div id="cart-main" class="flex flex-col p-2 space-y-2 md:px-4">
+								
+										<!-- FILA ITEM 1 -->
+										<div class="cart-item flex flex-col justify-between border-b-2 md:flex-row md:w-full bg-teal">
+											<!-- ONLY MOBILE HEADING -->
+											<div class="flex space-x-2 text-sm md:hidden">
+												<div class="w-1/4">
+													<span id="item-code">CODIGO</span>
+												</div>
+
+												<div class="w-full">
+													<span id="item-description">DESCRIPCION</span>
+												</div>
+
+												<div class="w-max">
+													<button id="btn-remove"><i class="fa-solid fa-trash text-xl px-1 md:px-3"></i></button>
+												</div>
+											</div>
+
+											<!-- ITEM CODIGO Y DESCRIPCION -->
+											<div class="flex py-2 md:py-0 md:justify-around md:space-x-4">
+												<div class="w-1/4 md:text-center md:w-24">
+													<span id="item-code">0354</span>
+												</div>
+
+												<div class="w-full md:w-96 md:px-4">
+													<span id="item-description">CODO PVC 3/4" ACERO GALVANIZADO</span>
+												</div>
+											</div>
+
+											<!-- ONLY MOBILE HEADING -->
+											<div class="flex text-center text-sm justify-end space-x-2 md:hidden">
+												<div class="w-1/4">
+													<span id="item-qt">CANTIDAD</span>
+												</div>
+
+												<div class="w-1/4">
+													<span id="item-unit">P. UNIT</span>
+												</div>
+
+												<div class="w-1/4">
+													<span id="item-total">P. TOTAL</span>
+												</div>
+											</div>
+
+											<!-- ITEM CANTIDAD P UNIT y  P TOTAL -->
+											<div class="flex text-center justify-end space-x-2 md:w-full md:justify-around">
+												<div class="w-1/4">
+													<input id="item-cart-qt" type="number" class="w-16" value="1">
+												</div>
+												<div class="w-1/4">
+													<span>$ 223.44</span>
+												</div>
+												<div class="w-1/4">
+													<span>$ 5134.33</span>
+												</div>
+												<div class="hidden md:block md:w-max">
+													<button id="btn-remove">
+														<i class="fa-solid fa-trash text-xl px-1 md:px-3"></i>
+													</button>
+													
+												</div>
+											</div>
+										</div>
+
+
+
+										
+									</div>
+
+
+									<!-- SECCION SUBTOTAL -->
+									<div class="flex flex-col py-1 space-y-4 px-6 md:border-b-2 text-sm md:flex-row md:justify-between md:py-2 md:space-y-0">
+
+										<div class="flex justify-between md:border-none md:w-full">
+											<div class="md:w-16"></div>
+
+											<div class="md:w-16"></div>
+
+											<div class="w-1/3 md:w-96"></div>
+
+											<div class="w-36 font-bold md:w-24">SUBTOTAL</div>
+
+											<div class="w-1/3 md:w-24">S/ 17.50</div>
+										</div>
+
+									</div>
+
+									<!-- SECCION IGV -->
+									<div class="flex flex-col py-1 space-y-2 px-6 md:border-b-2 text-sm md:flex-row md:justify-between md:py-2 md:space-y-0">
+
+										<div class="flex justify-between border-t-2 md:border-none md:w-full">
+											<div class="md:w-16"></div>
+
+											<div class="md:w-16"></div>
+
+											<div class="w-1/3 md:w-96"></div>
+
+											<div class="w-36 font-bold md:w-24">IGV (18%)</div>
+
+											<div class="w-1/3 md:w-24">S/ 3.15</div>
+										</div>
+
+									</div>
+
+									<!-- SECCION TOTAL -->
+									<div class="flex flex-col mb-2 py-1 space-y-2 px-6 text-sm md:flex-row md:justify-between md:py-2 md:space-y-0">
+
+										<div class="flex justify-between border-t-2 md:border-none md:w-full">
+											<div class="md:w-16"></div>
+
+											<div class="md:w-16"></div>
+
+											<div class="w-1/3 md:w-96"></div>
+
+											<div class="w-36 font-bold md:w-24">TOTAL</div>
+
+											<div class="w-1/3 md:w-24">S/ 20.65</div>
+										</div>
+
+									</div>
+
+								</div>
+							</div>
+
+						</section>
+
+
+				</div>
+
+				<!-- hamburger Icon -->
+				<button id="menu-btn" class="block px-4 hamburger md:hidden focus:outline-none">
+					<span class="hamburger-top"></span>
+					<span class="hamburger-middle"></span>
+					<span class="hamburger-bottom"></span>
+				</button>
+			</div>
+
+			<!-- mobile menu -->
+			<div class="md:hidden">
+				<!-- colocar clase absolute para que se despliegue encima del contenido, fixed dentro del mismo div,  -->
+				<div id="menu" class="hidden absolute bg-info flex-col items-center py-2 font-bold sm:w-auto sm:self-center left-4 right-4 drop-shadow-lg">
+					<div class="w-full text-center py-2">
+						<a href="#">Dashboard</a>
+					</div>
+					<div class="w-full text-center py-2 border-t-2 border-secondary">
+						<a href="#">Clientes</a>
+					</div>
+					<div class="w-full text-center py-2 border-t-2 border-secondary">
+						<a href="#">Requerimientos</a>
+					</div>
+				</div>
+			</div>	
+
+		</nav>
+	</section>
+	
+
+	<!-- TIENDA -->
+	<section class="max-w-3-xl p-5">
+		<div class="container bg-info mx-auto">
+			<h2 class="text-xl font-bold text-center">Music</h2>
+			<!-- items container -->
+			<div id="shop-items" class="flex flex-col justify-between p-2 space-y-2 md:space-y-0 md:space-x-2 md:flex-row">
+
+				<!-- 01 product -->
+				<div id="shop-item" class="flex flex-col w-auto items-center p-2 md:w-1/3 bg-light">
+					<span id="item-title">Album 1</span>
+					<span id="item-code">034</span>
+					<img id="item-image" src="amlo.jpg" alt="" class="mt-4 rounded-xl">
+					<div id="item-details" class="flex flex-col mt-4 md:w-full md:flex-row md:justify-around">
+						<strong>Precio: </strong>
+						<span id="item-price">$ 15.99</span>
+						<input id="item-shop-qt" type="number" class="w-16" value="1">
+						<button id="item-button" class="p-2 w-md:w-max rounded-xl bg-warning">Add to cart</button>
+					</div>
+				</div>
+
+				<!-- 02 product -->
+				<div id="shop-item" class="flex flex-col w-auto items-center p-2 md:w-1/3 bg-light">
+					<span id="item-title">Album 2</span>
+					<img id="item-image" src="amlo.jpg" alt="" class="mt-4 rounded-xl">
+					<div id="item-details" class="flex flex-col mt-4 md:w-full md:flex-row md:justify-around">
+						<strong>Precio: </strong>
+						<span id="item-price">$5.49</span>
+						<button id="item-button" class="p-2 w-md:w-max rounded-xl bg-warning">Add to cart</button>
+					</div>
+				</div>
+
+				<div id="shop-item" class="flex flex-col w-auto items-center p-2 md:w-1/3 bg-light">
+					<span id="item-title">Album 3</span>
+					<img id="item-image" src="amlo.jpg" alt="" class="mt-4 rounded-xl">
+					<div id="item-details" class="flex flex-col mt-4 md:w-full md:flex-row md:justify-around">
+						<strong>Precio: </strong>
+						<span id="item-price">$6.95</span>
+						<button id="item-button" class="p-2 w-md:w-max rounded-xl bg-warning">Add to cart</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+
+
+	<!-- footer -->
+	<footer class="bg-green mt-auto">
+		<!-- flex container -->
+		<div class="container flex flex-col-reverse justify-between px-6 py-1 mx-auto space-y-4 md:flex-row md:space-y-0">
+			<!-- logo and social links -->
+			<div class="flex flex-col-reverse items-center justify-between space-y-6 md:flex-col md:space-y-0 md:items-start">
+
+				<div class="mx-auto my-3 text-center text-white md:hidden">
+					copyright 2022 All Right reserved
+				</div>
+
+			</div>
+			<!-- list container -->
+			<div class="flex justify-around space-x-16">
+				<div class="flex flex-col space-y-3 text-white">
+					<a href="index.html" class="hover:underline">© 2022  by Grupo PerTI</a>
+
+				</div>
+			</div>
+
+		</div>
+	</footer>
+
+	<!-- <script src="js/main.js"></script> -->
+</body>
+</html>
