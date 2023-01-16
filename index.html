@@ -8,7 +8,7 @@
 	<script src="js/app.js"></script>
 	<title>Shopping Cart</title>
 </head>
-<body class="flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen bg-neutralLight">
 
 	<section id="navbar" class="bg-primary">
 		<!-- navbar	 -->
@@ -17,20 +17,20 @@
 			<div class="flex items-center justify-between md:space-x-4">
 				<!-- logo -->
 				<div class="p-1 md:p-0">
-					<img class="w-1/2 md:w-1/4" src="img/logo-bco.png" alt="">
+					<img class="w-1/2 md:w-1/4 bg-dark" src="img/logo-bco.png" alt="">
 				</div>
 				<!-- menu items -->
 				<div class="hidden md:flex">
-					<a href="#" class="p-4 bg-orange hover:bg-teal">Dashboard</a>
-					<a href="#" class="p-4 hover:bg-teal">Clientes</a>
-					<a href="#" class="p-4 hover:bg-teal">Requerimientos</a>
+					<a href="#" class="p-4 bg-cta hover:bg-ctaDark text-white rounded-t-xl">Dashboard</a>
+					<a href="#" class="p-4 rounded-t-xl hover:bg-cta hover:text-dark">Clientes</a>
+					<a href="#" class="p-4 rounded-t-xl hover:bg-cta hover:text-dark">Requerimientos</a>
 				</div>
 
 				<div class="flex items-center px-3 py-1 w-full mr-12 space-x-2 md:w-auto md:border-l-2">
 					<img src="amlo.jpg" class="w-12 rounded-full" alt="">
 					<a href="#" id="btn-profile">Celeste</a>
 					<button id="btn-cart">
-						<i class="fa-solid fa-shopping-cart rounded-full bg-warning p-3 hover:bg-orange"></i>
+						<i class="fa-solid fa-shopping-cart text-dark rounded-full bg-cta p-3 hover:bg-ctaLight"></i>
 					</button>
 
 						<!-- CARRITO DE COMPRAS -->
@@ -190,16 +190,16 @@
 
 				<!-- hamburger Icon -->
 				<button id="menu-btn" class="block px-4 hamburger md:hidden focus:outline-none">
-					<span class="hamburger-top"></span>
-					<span class="hamburger-middle"></span>
-					<span class="hamburger-bottom"></span>
+					<span class="hamburger-top bg-dark"></span>
+					<span class="hamburger-middle bg-dark"></span>
+					<span class="hamburger-bottom bg-dark"></span>
 				</button>
 			</div>
 
 			<!-- mobile menu -->
 			<div class="md:hidden">
 				<!-- colocar clase absolute para que se despliegue encima del contenido, fixed dentro del mismo div,  -->
-				<div id="menu" class="hidden absolute bg-info flex-col items-center py-2 font-bold sm:w-auto sm:self-center left-4 right-4 drop-shadow-lg">
+				<div id="menu" class="hidden absolute bg-cta flex-col items-center py-2 font-bold sm:w-auto sm:self-center left-4 right-4 drop-shadow-lg">
 					<div class="w-full text-center py-2">
 						<a href="#">Dashboard</a>
 					</div>
@@ -217,43 +217,33 @@
 	
 
 	<!-- TIENDA -->
-	<section class="max-w-3-xl p-5">
-		<div class="container bg-info mx-auto">
-			<h2 class="text-xl font-bold text-center">Music</h2>
+	<section class="max-w-3-xl p-5 ">
+		<div class="container mx-auto">
+			<h2 class="text-xl font-bold text-center text-dark">Music</h2>
 			<!-- items container -->
 			<div id="shop-items" class="flex flex-col justify-between p-2 space-y-2 md:space-y-0 md:space-x-2 md:flex-row">
 
 				<!-- 01 product -->
-				<div id="shop-item" class="flex flex-col w-auto items-center p-2 md:w-1/3 bg-light">
+				<div id="shop-item" class="flex flex-col w-auto items-center p-2 md:w-1/3 bg-neutral">
 					<span id="item-title">Album 1</span>
 					<span id="item-code">034</span>
-					<img id="item-image" src="amlo.jpg" alt="" class="mt-4 rounded-xl">
+					<img id="item-image" src="img/anya1.jpg" alt="" class="w-44 mt-4 rounded-xl">
 					<div id="item-details" class="flex flex-col mt-4 md:w-full md:flex-row md:justify-around">
 						<strong>Precio: </strong>
 						<span id="item-price">$ 15.99</span>
 						<input id="item-shop-qt" type="number" class="w-16" value="1">
-						<button id="item-button" class="p-2 w-md:w-max rounded-xl bg-warning">Add to cart</button>
+						<button id="item-button" class="p-2 w-md:w-max rounded-xl bg-cta">Add to cart</button>
 					</div>
 				</div>
 
 				<!-- 02 product -->
-				<div id="shop-item" class="flex flex-col w-auto items-center p-2 md:w-1/3 bg-light">
+				<div id="shop-item" class="flex flex-col w-auto bg-neutral items-center p-2 md:w-1/3">
 					<span id="item-title">Album 2</span>
-					<img id="item-image" src="amlo.jpg" alt="" class="mt-4 rounded-xl">
+					<img id="item-image" src="img/anya2.jpg" alt="" class="w-44 mt-4 rounded-xl">
 					<div id="item-details" class="flex flex-col mt-4 md:w-full md:flex-row md:justify-around">
 						<strong>Precio: </strong>
 						<span id="item-price">$5.49</span>
-						<button id="item-button" class="p-2 w-md:w-max rounded-xl bg-warning">Add to cart</button>
-					</div>
-				</div>
-
-				<div id="shop-item" class="flex flex-col w-auto items-center p-2 md:w-1/3 bg-light">
-					<span id="item-title">Album 3</span>
-					<img id="item-image" src="amlo.jpg" alt="" class="mt-4 rounded-xl">
-					<div id="item-details" class="flex flex-col mt-4 md:w-full md:flex-row md:justify-around">
-						<strong>Precio: </strong>
-						<span id="item-price">$6.95</span>
-						<button id="item-button" class="p-2 w-md:w-max rounded-xl bg-warning">Add to cart</button>
+						<button id="item-button" class="p-2 w-md:w-max rounded-xl bg-cta">Add to cart</button>
 					</div>
 				</div>
 
@@ -264,22 +254,18 @@
 
 
 	<!-- footer -->
-	<footer class="bg-green mt-auto">
-		<!-- flex container -->
-		<div class="container flex flex-col-reverse justify-between px-6 py-1 mx-auto space-y-4 md:flex-row md:space-y-0">
-			<!-- logo and social links -->
-			<div class="flex flex-col-reverse items-center justify-between space-y-6 md:flex-col md:space-y-0 md:items-start">
-
-				<div class="mx-auto my-3 text-center text-white md:hidden">
+	<footer class="bg-primary mt-auto">
+		<div class="container mx-auto flex flex-col-reverse items-center md:flex-row md:justify-center">
+			
+			<div class="flex">
+				<div class="mx-auto py-2 text-center text-dark md:hidden">
 					copyright 2022 All Right reserved
 				</div>
-
 			</div>
-			<!-- list container -->
-			<div class="flex justify-around space-x-16">
-				<div class="flex flex-col space-y-3 text-white">
-					<a href="index.html" class="hover:underline">© 2022  by Grupo PerTI</a>
 
+			<div class="flex">
+				<div class="mx-auto py-1 text-dark md:py-2">
+					<a href="index.html" class="hover:underline">© 2022  by Grupo PerTI</a>
 				</div>
 			</div>
 

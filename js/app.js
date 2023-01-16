@@ -1,5 +1,15 @@
 window.addEventListener('DOMContentLoaded', () => {
 
+	// mostrar menu desplegable
+	const btn = document.getElementById('menu-btn');
+	const nav = document.getElementById('menu');
+
+	btn.addEventListener('click', () => {
+		btn.classList.toggle('open');
+		nav.classList.toggle('flex');
+		nav.classList.toggle('hidden');
+	})
+
 	// mostart ocultar carrito
 	const cart = getUni('#shop-cart')
 	const btnCart = getUni('#btn-cart')

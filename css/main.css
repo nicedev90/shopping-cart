@@ -570,11 +570,6 @@ video {
   margin-right: auto;
 }
 
-.my-3 {
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
-}
-
 .mr-12 {
   margin-right: 3rem;
 }
@@ -605,6 +600,10 @@ video {
 
 .hidden {
   display: none;
+}
+
+.h-screen {
+  height: 100vh;
 }
 
 .min-h-screen {
@@ -661,6 +660,10 @@ video {
   width: auto;
 }
 
+.w-44 {
+  width: 11rem;
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -685,10 +688,6 @@ video {
   justify-content: space-between;
 }
 
-.justify-around {
-  justify-content: space-around;
-}
-
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.5rem * var(--tw-space-x-reverse));
@@ -707,30 +706,17 @@ video {
   margin-bottom: calc(1rem * var(--tw-space-y-reverse));
 }
 
-.space-y-6 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
-}
-
-.space-x-16 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(4rem * var(--tw-space-x-reverse));
-  margin-left: calc(4rem * calc(1 - var(--tw-space-x-reverse)));
-}
-
-.space-y-3 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
-}
-
 .rounded-full {
   border-radius: 9999px;
 }
 
 .rounded-xl {
   border-radius: 0.75rem;
+}
+
+.rounded-t-xl {
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
 }
 
 .border-b-2 {
@@ -744,6 +730,26 @@ video {
 .bg-primary {
   --tw-bg-opacity: 1;
   background-color: hsl(56 100% 50% / var(--tw-bg-opacity));
+}
+
+.bg-dark {
+  --tw-bg-opacity: 1;
+  background-color: hsl(188 100% 14.5% / var(--tw-bg-opacity));
+}
+
+.bg-cta {
+  --tw-bg-opacity: 1;
+  background-color: hsl(179 70.3% 43.5% / var(--tw-bg-opacity));
+}
+
+.bg-neutralLight {
+  --tw-bg-opacity: 1;
+  background-color: hsl(210 33.3% 98.3% / var(--tw-bg-opacity));
+}
+
+.bg-neutral {
+  --tw-bg-opacity: 1;
+  background-color: hsl(210 33.3% 93.3% / var(--tw-bg-opacity));
 }
 
 .p-1 {
@@ -824,12 +830,82 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.text-dark {
+  --tw-text-opacity: 1;
+  color: hsl(188 100% 14.5% / var(--tw-text-opacity));
+}
+
 .drop-shadow-lg {
   --tw-drop-shadow: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 body {
+}
+
+.hamburger {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.hamburger-top,
+.hamburger-middle,
+.hamburger-bottom {
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  top: 0;
+  left: 0;
+  transform: rotate(0);
+  transition: all 0.5s;
+}
+
+.hamburger-middle {
+  transform: translateY(7px);
+}
+
+.hamburger-bottom {
+  transform: translateY(14px);
+}
+
+.open {
+  transform: rotate(90deg);
+  transform: translateY(0px);
+}
+
+.open .hamburger-top {
+  transform: rotate(45deg) translateY(6px) translate(6px);
+}
+
+.open .hamburger-middle {
+  display: none;
+}
+
+.open .hamburger-bottom {
+  transform: rotate(-45deg) translateY(6px) translate(-6px);
+}
+
+.hover\:bg-ctaDark:hover {
+  --tw-bg-opacity: 1;
+  background-color: hsl(179 70.3% 31.5% / var(--tw-bg-opacity));
+}
+
+.hover\:bg-cta:hover {
+  --tw-bg-opacity: 1;
+  background-color: hsl(179 70.3% 43.5% / var(--tw-bg-opacity));
+}
+
+.hover\:bg-ctaLight:hover {
+  --tw-bg-opacity: 1;
+  background-color: hsl(179 70.3% 51.5% / var(--tw-bg-opacity));
+}
+
+.hover\:text-dark:hover {
+  --tw-text-opacity: 1;
+  color: hsl(188 100% 14.5% / var(--tw-text-opacity));
 }
 
 .hover\:underline:hover {
@@ -910,12 +986,8 @@ body {
     flex-direction: row;
   }
 
-  .md\:flex-col {
-    flex-direction: column;
-  }
-
-  .md\:items-start {
-    align-items: flex-start;
+  .md\:justify-center {
+    justify-content: center;
   }
 
   .md\:justify-between {
@@ -984,3 +1056,4 @@ body {
     text-align: center;
   }
 }
+
